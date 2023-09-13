@@ -1,2 +1,2 @@
-# cs260
-Repo for CS 260 Web Development, taken in Fall 2023 at BYU.
+# This is CS 260: Web Development
+The goal of the class is to create my first web "startup" and demonstrate proficiency in the common tools used for web development.
