@@ -16,6 +16,7 @@ Here is a mockup of the Lift Log running on an iPhone after the user has logged 
 - Secure login over HTTPS
 - Persistently stored record of workouts with most recent weight and rep count for each workout
 - Quick add option that allows user to either add a workout if not in database or search and update a current workout
+- Log can be sorted by highest weight, highest reps, or most recent workout
 - User can delete workouts from their Log
 - Leaderboard page where users can view friend's workouts
 
