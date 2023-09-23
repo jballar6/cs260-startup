@@ -26,7 +26,7 @@ I will use the required technologies in the following ways.
 
 - **HTML** - Uses correct HTML structure for application. Three HTML pages. One for login, one for the user's Log, and one for viewing friend's Logs. Hyperlinks connect each page.
 - **CSS** - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
-- **JavaScript** - Provides login, choice display, applying votes, display other users votes, backend endpoint calls.
+- **JavaScript** - Provides login, sorting user's Log, and backend endpoint calls for search, updating database, and viewing leaderboards.
 - **Service** - Backend service with endpoints for:
   - login
   - retrieving stored workouts
