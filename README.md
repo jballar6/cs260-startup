@@ -3,7 +3,7 @@
 ## Description deliverable
 
 ### Elevator pitch
-Tracking your reps and weights is essential for progressing in the gym, but using notes apps and cluttered bullet point lists or Excel spreadsheets to track this progress is more difficult than it needs to be. The Lift Log makes recording your weights seamless. You just put in your most recent weight and reps for a workout, and the Lift Log will take care of the rest. Then, the Lift Log makes it effortless to to see where your strength is at.
+Tracking your reps and weights is essential for progressing in the gym, but using notes apps and cluttered bullet point lists or Excel spreadsheets to track this progress is more difficult than it needs to be. The Lift Log makes recording your weights seamless. You just put in your most recent weight and reps for a workout, and the Lift Log will take care of the rest, creating your personal, easily searchable and quickly updatable Log.
 
 ### Design
 
