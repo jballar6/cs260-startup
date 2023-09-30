@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lift Log</title>
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <!-- Use header, main, and footer elements to give semantic structure -->
+    <header>
+      <h1>The Lift Log Leaderboard</h1>
+
+      <!-- Navigation elements -->
+      <nav>
+        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+        <menu>
+          <li><a href="loggedin.html">Back to my Log</a></li>
+          <li>Mystery Username</li>
+          <li><a href="index.html">Log out</a></li>
+        </menu>
+      </nav>
+
+      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+      <hr />
+    </header>
+
+    <main>
+      <form method="add" >
+        <input type="text" id="search" placeholder="Search for a workout" />
+        <button type="submit">Go</button>
+      </form>
+      <h4>Bench press</h4>
+      <div class="workouts">
+        Top Workouts:
+        <br />
+        <span class="sort-option">Sort by</span>
+      </div>
+      <ol class="logbook">
+        <li class="workout">Jimbo - 1 rep - 415 lbs.</li>
+        <li class="workout">Chris Bumstead - 1 rep - 405 lbs.</li>
+        <li class="workout">Cosmo - 1 rep - 225 lbs.</li>
+      </ol>
+
+    </main>
+
+    <footer>
+      <hr />
+      <span class="text-reset">Author Name(s)</span>
+      <br />
+      <a href="https://github.com/webprogramming260/simon-html">GitHub</a>
+    </footer>
+  </body>
+</html>
