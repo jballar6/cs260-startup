@@ -43,6 +43,7 @@ For this deliverable I built out the structure of the application using HTML.
 - **HTML pages** - Three unique HTML pages, one for the login screen, one for logged in view of the Log, and the third to view the leaderboard.
 - **Links** Login page links to logged in page, and the logged in page has links to log back out and go to the leaderboard page. The leaderboard link is replaced with a "Return to my log" link on the leaderboard page.
 - **Text** - I included dummy text to represent the future stored workout data.
+- **3rd party services** - A third party database will be used for storing workout logs to be called on later.
 - **Images** - I don't think I will include an image in the final result, but I wanted to include an image in this deliverable just to practice using the img tag. It is a DALL-E generated image of a bodybuilder and is featured on the login page.
 - **Login** - Input box and submit button for login.
 - **Database** - The different listed workouts on the logged in page and the leaderboard page represent data pulled from the database.
