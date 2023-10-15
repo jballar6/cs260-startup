@@ -26,7 +26,7 @@
         <menu class="d-flex">
           <li class="nav-item"><a class="nav-link" href="loggedin.html">Back to my Log</a></li>
         </menu>
-        <menu class="d-flex ml-auto">
+        <menu class="d-flex justify-content-end custom-padding">
           <li class="nav-item">Mystery Username</li>
           <li class="nav-item"><a class="nav-link" href="index.html">Log out</a></li>
         </menu>
@@ -36,20 +36,19 @@
 
     <main>
       <h1>The Lift Log Leaderboard</h1>
-
       <form method="add">
         <input type="text" id="search" placeholder="Search for a workout" />
-        <button type="submit" class="btn btn-primary color-">Go</button>
+        <button type="submit" class="btn btn-danger btn-custom">Go</button>
       </form>
       <h5>Bench press</h5>
       <div class="workouts">
         Top Workouts:
         <span class="sort-option">Sort by</span>
       </div>
-      <ol class="list-group">
-        <li class="list-group-item">Jimbo - 1 rep - 415 lbs.</li>
-        <li class="list-group-item">Chris Bumstead - 1 rep - 405 lbs.</li>
-        <li class="list-group-item">Cosmo - 1 rep - 225 lbs.</li>
+      <ol class="list-group list-group-numbered list-group-custom">
+        <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
+        <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
+        <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
       </ol>
 
     </main>

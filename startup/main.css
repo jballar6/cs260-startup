@@ -33,8 +33,33 @@ menu {
   border-bottom: solid rgb(182, 182, 182) thin;
 }
 
+.custom-padding {
+  padding-right: 40px;
+}
+
 menu .nav-item {
   padding: 0 0.3em;
+}
+
+.list-group-custom {
+    background-color: orangered;
+}
+
+.list-group-item-custom {
+    background-color: #f1f9fb; /* Change the background color */
+    border-top: 1px solid #0091b5; /* Change the border color */
+    border-left-color: #fff;
+    border-right-color: #fff;
+}
+
+/* Change the hover effect */
+.list-group-item-custom:hover {
+    background-color: #DC3545; /* Change the hover color */
+}
+
+.btn-custom {
+    background-color: red;
+    border: red;
 }
 
 footer a {
