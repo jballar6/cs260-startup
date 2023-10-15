@@ -41,6 +41,18 @@ menu .nav-item {
   padding: 0 0.3em;
 }
 
+.list-group {
+    background-color: #DC3545;
+    max-height: 300px;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .list-group-custom {
     background-color: #DC3545;
 }
