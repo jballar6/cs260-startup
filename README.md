@@ -48,3 +48,13 @@ For this deliverable I built out the structure of the application using HTML.
 - **Login** - Input box and submit button for login.
 - **Database** - The different listed workouts on the logged in page and the leaderboard page represent data pulled from the database.
 - **WebSocket** - The workout log data will be updated in realtime once the user inputs a workout in the logged in page.
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into the visual appearance from my original mockup.
+- **Header, footer and main content body**
+- **Navigation elements** - I properly aligned one menu to the left and the other to the right to create a separation of navigation tasks.
+- **Response to window resizing** - My app properly resizes on PC and phones.
+- **Application elements** - Used themed colors for buttons and hovering on menus and added whitespace.
+- **Application text content** - Consistent fonts.
+- **Application images** - Still using my good ol' Dall-E image on the landing page (for now)!

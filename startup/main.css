@@ -33,7 +33,7 @@ menu {
   border-bottom: solid rgb(182, 182, 182) thin;
 }
 
-.custom-padding {
+.right-menu-padding {
   padding-right: 40px;
 }
 
@@ -42,7 +42,7 @@ menu .nav-item {
 }
 
 .list-group-custom {
-    background-color: orangered;
+    background-color: #DC3545;
 }
 
 .list-group-item-custom {
@@ -54,7 +54,7 @@ menu .nav-item {
 
 /* Change the hover effect */
 .list-group-item-custom:hover {
-    background-color: #DC3545; /* Change the hover color */
+    background-color: #FFFFFF80; /* Change the hover color */
 }
 
 .btn-custom {
