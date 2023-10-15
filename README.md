@@ -52,7 +52,7 @@ For this deliverable I built out the structure of the application using HTML.
 ## CSS deliverable
 
 For this deliverable I properly styled the application into the visual appearance from my original mockup.
-- **Header, footer and main content body**
+- **Header, footer and main content body** - All properly created and placed!
 - **Navigation elements** - I properly aligned one menu to the left and the other to the right to create a separation of navigation tasks.
 - **Response to window resizing** - My app properly resizes on PC and phones.
 - **Application elements** - Used themed colors for buttons and hovering on menus and added whitespace.
