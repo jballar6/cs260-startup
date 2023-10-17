@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <!-- Tell browsers not to scale the viewport automatically -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lift Leaderboard</title>
+    <title>Lift Log Calendar</title>
     <link rel="icon" href="favicon.ico" />
 
     <link rel="stylesheet" href="main.css" />
@@ -25,7 +25,6 @@
         <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu class="d-flex">
           <li class="nav-item"><a class="nav-link" href="loggedin.html">Back to my Log</a></li>
-          <li class="nav-item"><a class="nav-link" href="calendar.html">Lift Calendar</a></li>
         </menu>
         <menu class="d-flex justify-content-end right-menu-padding">
           <li class="nav-item">Mystery User</li>
@@ -35,30 +34,63 @@
 
     </header>
 
-    <main>
-      <h1>The Lift Log Leaderboard</h1>
+    <main class="container-fluid text-center">
+      <h1>Lift History</h1>
       <form method="add">
-        <input type="text" id="search" placeholder="Search for a workout" />
+        <input type="text" id="search" placeholder="Record a workout" />
         <button type="submit" class="btn btn-danger btn-custom">Go</button>
       </form>
-      <h5>Top bench press lifts:</h5>
-      <ol class="list-group list-group-numbered list-group-custom" style="position: relative; width: 375px; height: 300px; overflow: auto; -webkit-overflow-scrolling: touch;">
+      <div class="list-group" style="position: relative; width: 375px; height: 300px;">
         <div style="display: flex; justify-content: space-between; padding: 10px;">
-            <span>Sort by:</span>
-            <span>Weight</span>
+            <span>&#10094;</span>
+            <span>October 2023</span>
+            <span>&#10095;</span>
         </div>
-        <div style="overflow: auto; height: calc(100% - 40px);">
-            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
-            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
+        <div style="height: calc(100% - 40px);">
+            <ul class="weekdays">
+            <li>Su</li>
+            <li>Mo</li>
+            <li>Tu</li>
+            <li>We</li>
+            <li>Th</li>
+            <li>Fr</li>
+            <li>Sa</li>
+            </ul>
+
+            <ul class="days">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li><span class="active">10</span></li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            </ul>
         </div>
-      </ol>
+     </div>
 
     </main>
 
