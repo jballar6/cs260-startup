@@ -27,9 +27,13 @@ footer {
 menu {
   flex: 1;
   display: flex;
+  justify-content: space-between;
+  max-width: 500px;
   /*  overwrite Bootstrap so the menu does not wrap */
   flex-direction: row !important;
   list-style: none;
+  padding-inline-start: 1em;
+  padding-inline-end: 1em;
 }
 
 .navbar-brand {
@@ -37,17 +41,29 @@ menu {
   border-bottom: solid rgb(182, 182, 182) thin;
 }
 
+.nav-link-active {
+    text-decoration: underline;
+    color: #DC3545;
+    font-weight: bolder;
+}
+
+.custom-menu-padding {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .right-menu-padding {
   padding-right: 40px;
 }
 
 menu .nav-item {
-  padding: 0 .7em;
+  padding: 0 1em;
 }
 
 .list-group {
     background-color: #DC3545;
-    max-height: 300px;
+    height: 300px;
+    width: 375px;
 }
 
 ::-webkit-scrollbar {
