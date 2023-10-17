@@ -41,19 +41,12 @@ menu {
   border-bottom: solid rgb(182, 182, 182) thin;
 }
 
-.nav-link-active {
+.nav-item-active {
     text-decoration: underline;
     color: #DC3545;
     font-weight: bolder;
-}
-
-.custom-menu-padding {
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.right-menu-padding {
-  padding-right: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 menu .nav-item {
