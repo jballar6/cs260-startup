@@ -7,6 +7,7 @@
     <title>Lift Log Calendar</title>
     <link rel="icon" href="favicon.ico" />
 
+    <script src="calendar.js"></script>
     <link rel="stylesheet" href="main.css" />
 
     <!-- Include bootstrap CSS framework -->
@@ -40,9 +41,9 @@
       </form>
       <div class="list-group" style="position: relative; width: 375px; height: 300px;">
         <div style="display: flex; justify-content: space-between; padding: 10px;">
-            <span>&#10094;</span>
-            <span>October 2023</span>
-            <span>&#10095;</span>
+            <span class="nav-back-day prevent-select">&#10094;</span>
+            <div class="display-month">October 2023</div>
+            <span class="nav-forward-day prevent-select">&#10095;</span>
         </div>
         <div style="height: calc(100% - 40px);">
             <ul class="weekdays">
