@@ -8,6 +8,7 @@
 
     <link rel="icon" href="favicon.ico" />
 
+    <script src="workoutlog.js"></script>
     <link rel="stylesheet" href="main.css" />
 
     <!-- Include bootstrap CSS framework -->
@@ -36,23 +37,15 @@
       <h1>My Lift Log</h1>
       <form method="add">
         <input type="text" id="search" placeholder="Record a workout" />
-        <button type="submit" class="btn btn-danger btn-custom">Go</button>
+        <button type="submit" class="btn btn-danger btn-custom" onclick="logWorkout()">Go</button>
       </form>
       <div class="list-group list-group-custom">
         <div style="display: flex; justify-content: space-between; padding: 10px;">
-            <span>&#10094;</span>
-            <span>Today</span>
-            <span>&#10095;</span>
+            <span class="nav-back-day">&#10094;</span>
+            <span class="log-date">Today</span>
+            <span class="nav-forward-day">&#10095;</span>
         </div>
-        <div style="overflow: auto; height: calc(100% - 40px);">
-            <li class="list-group-item list-group-item-custom">Dumbbell bench press - 3 sets</li>
-            <li class="list-group-item list-group-item-custom">Hack Squat - 3 sets</li>
-            <li class="list-group-item list-group-item-custom">Overhead press - 3 sets</li>
-            <li class="list-group-item list-group-item-custom">Olympic deadlift - 1 set</li>
-            <li class="list-group-item list-group-item-custom">Dumbbell lateral raise - 2 sets</li>
-            <li class="list-group-item list-group-item-custom">Pulldown - 5 sets</li>
-            <li class="list-group-item list-group-item-custom">Calf extensions - 5 sets</li>
-            <li class="list-group-item list-group-item-custom">Hanging leg raises - 3 sets</li>
+        <div class="inner-div" style="overflow: auto; height: calc(100% - 40px);">
         </div>
      </div>
 

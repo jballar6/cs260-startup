@@ -82,9 +82,16 @@ menu .nav-item {
     background-color: #FFFFFF80; /* Change the hover color */
 }
 
-.btn-custom {
-    background-color: red;
-    border: red;
+span.nav-back-day {
+    cursor:pointer;
+}
+
+span.nav-forward-day {
+    cursor:pointer;
+}
+
+span.stats-sorter {
+    cursor:pointer;
 }
 
 footer a {
