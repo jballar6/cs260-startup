@@ -73,5 +73,50 @@ function loadWorkouts() {
     }
 }
 
-// Load workouts when the page loads
-window.onload = loadWorkouts;
+// Funct// Function to change date when nav-back-day or nav-forward-day is clicked
+function changeDate() {
+    var navBackDay = document.querySelector('.nav-back-day');
+    var navForwardDay = document.querySelector('.nav-forward-day');
+    var logDate = document.querySelector('.log-date');
+
+    navBackDay.addEventListener('click', function() {
+        // Subtract one day from currentDate
+        currentDate.setDate(currentDate.getDate() - 1);
+
+        // Check if currentDate matches the current date
+        if (currentDate.toDateString() === new Date().toDateString()) {
+            logDate.textContent = "Today";
+        } else {
+            // Update logDate and load workouts for the new date
+            logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
+        }
+        
+        loadWorkouts();
+    });
+
+    navForwardDay.addEventListener('click', function() {
+        // Add one day to currentDate
+        currentDate.setDate(currentDate.getDate() + 1);
+
+        // Check if currentDate matches the current date
+        if (currentDate.toDateString() === new Date().toDateString()) {
+            logDate.textContent = "Today";
+        } else {
+            // Update logDate and load workouts for the new date
+            logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
+        }
+        
+        loadWorkouts();
+    });
+}
+
+
+// Load workouts and set up date change when the page loads
+window.onload = function() {
+    // Update the log-date div to display the current date
+    var logDate = document.querySelector('.log-date');
+    logDate.textContent = "Today";
+
+    loadWorkouts();
+    changeDate();
+};
