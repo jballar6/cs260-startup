@@ -58,3 +58,11 @@ For this deliverable I properly styled the application into the visual appearanc
 - **Application elements** - Used themed colors for buttons and hovering on menus and added whitespace.
 - **Application text content** - Consistent fonts.
 - **Application images** - Still using my good ol' Dall-E image on the landing page (for now)!
+
+## JavaScript deliverable
+
+For this deliverable I implemented initial functionality using JavaScript so that the application works for a single user. I also added placeholders for future technology.
+- **login** - When you press enter or the login button it takes you into the Log page.
+- **database** - Workouts are started in local storage as a placeholder for the future database data.
+- **WebSocket** - I also dynamically update the Log list in real time with the stored workouts in reverse order of when they were added.
+- **application logic** - I've begun setting up some of the basic functionality with the ability to sort workouts by Weight, Reps, or Date in the Stats page. I'm also currently working on making a Logbook object that will map the workouts arrays to the current date and display the proper workouts list for the selected date.
