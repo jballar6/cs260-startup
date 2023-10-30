@@ -91,7 +91,7 @@ function changeDate() {
             logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
         }
         
-        loadWorkouts();
+        //loadWorkouts();
     });
 
     navForwardDay.addEventListener('click', function() {
@@ -106,7 +106,7 @@ function changeDate() {
             logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
         }
         
-        loadWorkouts();
+        //loadWorkouts();
     });
 }
 
