@@ -37,7 +37,6 @@ app.listen(port, () => {
 });
 
 
-
 //let workouts = [];
 //function updateWorkouts(newWorkout, workouts) {
     //// Check if workout is not empty

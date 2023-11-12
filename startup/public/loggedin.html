@@ -60,7 +60,12 @@
       </div>
     </footer>
     <script>
-        document.querySelector('h2.userlog').textContent = localStorage.getItem('userName') + "'s Lift Log";
+        if (localStorage.getItem('userName')) {
+            document.querySelector('h2.userlog').textContent = localStorage.getItem('userName') + "'s Lift Log";
+        }
+        else {
+            document.querySelector('h2.userlog').textContent = "My Lift Log";
+        }
     </script>
   </body>
 </html>

@@ -39,8 +39,6 @@ function displayWorkouts(workouts) {
   }
 }
 
-loadWorkouts();
-
 // Global variable to store the current date
 var currentDate = new Date();
 
