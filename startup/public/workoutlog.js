@@ -73,7 +73,7 @@ function loadWorkouts() {
     }
 }
 
-// Funct// Function to change date when nav-back-day or nav-forward-day is clicked
+// Function to change date when nav-back-day or nav-forward-day is clicked
 function changeDate() {
     var navBackDay = document.querySelector('.nav-back-day');
     var navForwardDay = document.querySelector('.nav-forward-day');
