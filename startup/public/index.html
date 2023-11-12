@@ -30,11 +30,11 @@
 
     <main class="container-fluid text-center">
       <h6 id="quote" style="margin-top: 5vh;"></h6>
-        <div>
+        <form onsubmit="event.preventDefault(); login();">
         <label for="username">Username</label>
         <input type="text" id="name" placeholder="Your name here" />
         <button onclick="login()" class="btn btn-danger">Login</button>
-        </div>
+        </form>
       <img src="assets/BlackRedBodybuilder.png" width="300">
     </main>
 
