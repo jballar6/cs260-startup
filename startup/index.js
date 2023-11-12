@@ -14,6 +14,20 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// Initialize userlogs
+let userlogs = {};
+
+// API endpoint to get userlogs
+apiRouter.get('/userlogs', (_req, res) => {
+  res.json(userlogs);
+});
+
+// API endpoint to update userlogs
+apiRouter.post('/userlogs', (req, res) => {
+  userlogs = req.body;
+  res.json(userlogs);
+});
+
 // Placeholder for database connection
 
 // Return the application's default page if the path is unknown

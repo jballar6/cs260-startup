@@ -72,6 +72,6 @@ For this deliverable I implemented initial functionality using JavaScript so tha
 For this deliverable I added backend endpoints to receive and return stored workouts.
 - **Node.js/Express HTTP service** - done!
 - **Static middleware for frontend** - done!
-- **Calls to third party endpoints** - Added call to API for motivational gym quotes.
+- **Calls to third party endpoints** - Added call to API for motivational Bruce Lee quotes.
 - **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for logged workouts.
 - **Frontend calls service endpoints** - I did this using the fetch function.

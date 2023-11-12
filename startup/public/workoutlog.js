@@ -14,8 +14,15 @@ async function loadWorkouts() {
   let workouts = [];
   try {
     // Get the latest workouts from the service
-    const response = await fetch('/api/workouts');
-    workouts = await response.json();
+    const response = await fetch('/api/userlogs');
+    const userlogs = await response.json();
+
+    // Get the workouts for the current user and date
+    const username = 'user1'; // replace this with the actual username
+    const today = new Date().toISOString().split('T')[0];
+    if (userlogs[username] && userlogs[username][today]) {
+      workouts = userlogs[username][today].map(log => log.workout);
+    }
 
     // Save the workouts in case we go offline in the future
     localStorage.setItem('workouts', JSON.stringify(workouts));
@@ -55,7 +62,7 @@ function displayWorkouts(workouts) {
 var currentDate = new Date();
 
 // Function to log a workout
-function logWorkout() {
+async function logWorkout() {
     // Get the workout from the input field
     const workout = document.getElementById('search').value;
 
@@ -86,6 +93,22 @@ function logWorkout() {
         if (noWorkoutItem && noWorkoutItem.textContent === 'No workouts logged.') {
             innerDiv.removeChild(noWorkoutItem);
         }
+
+        // Add the workout to the userlogs object
+        const username = 'user1'; // replace this with the actual username
+        if (!userlogs[username]) {
+            userlogs[username] = {};
+        }
+        if (!userlogs[username][today]) {
+            userlogs[username][today] = [];
+        }
+
+        userlogs[username][today].push({
+            workout: workout,
+            sets: 0, // replace with actual sets
+            weight: 0, // replace with actual weight
+            reps: 0 // replace with actual reps
+        });
     }
 }
 
