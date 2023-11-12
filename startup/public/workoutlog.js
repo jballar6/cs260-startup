@@ -1,3 +1,15 @@
+//Model data structure
+//const userlogs = {
+    //user1 : "logs"->{
+        //date : {workout : a, sets : b, weight : c, reps : d},
+        //date2 : {workout : a, sets : b, weight : c, reps : d}
+    //},
+    //user2 : "logs"->{
+        //date : {workout : a, sets : b, weight : c, reps : d},
+        //date2 : {workout : a, sets : b, weight : c, reps : d}
+    //}
+//}
+
 async function loadWorkouts() {
   let workouts = [];
   try {
@@ -123,101 +135,3 @@ window.onload = function() {
     loadWorkouts();
     changeDate();
 };
-
-
-//// Global variable to store the current date
-//var currentDate = new Date();
-
-//function logWorkout() {
-    //// Get the workout from the input field
-    //var workout = document.getElementById('search').value;
-
-    //// Check if workout is not empty
-    //if (workout) {
-        //// Create a new workout object
-        //var newWorkout = { workout: workout, date: new Date() };
-
-        //// Send a POST request to the server
-        //fetch('/workoutlog', {
-            //method: 'POST',
-            //headers: {
-                //'Content-Type': 'application/json',
-            //},
-            //body: JSON.stringify(newWorkout)
-        //})
-        //.then(response => response.json())
-        //.then(workouts => {
-            //console.log(workouts);
-        //})
-        //.then(data => {
-            //console.log('Success:', data);
-            //loadWorkouts();
-        //})
-        //.catch((error) => {
-            //console.error('Error:', error);
-        //});
-    //}
-//}
-
-//function loadWorkouts() {
-    //// Send a GET request to the server
-    //fetch('/workoutlog')
-    //.then(response => response.json())
-    //.then(workouts => {
-        //const workoutList = document.querySelector('#workout-list');
-        //workouts.forEach(workout => {
-        //const listItem = document.createElement('li');
-        //listItem.textContent = workout;
-        //listItem.className = 'list-group-item list-group-item-custom';
-        //workoutList.appendChild(listItem);
-        //});
-    //});
-//}
-
-//// Function to change date when nav-back-day or nav-forward-day is clicked
-//function changeDate() {
-    //var navBackDay = document.querySelector('.nav-back-day');
-    //var navForwardDay = document.querySelector('.nav-forward-day');
-    //var logDate = document.querySelector('.log-date');
-
-    //navBackDay.addEventListener('click', function() {
-        //// Subtract one day from currentDate
-        //currentDate.setDate(currentDate.getDate() - 1);
-
-        //// Check if currentDate matches the current date
-        //if (currentDate.toDateString() === new Date().toDateString()) {
-            //logDate.textContent = "Today";
-        //} else {
-            //// Update logDate and load workouts for the new date
-            //logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
-        //}
-        
-        ////loadWorkouts();
-    //});
-
-    //navForwardDay.addEventListener('click', function() {
-        //// Add one day to currentDate
-        //currentDate.setDate(currentDate.getDate() + 1);
-
-        //// Check if currentDate matches the current date
-        //if (currentDate.toDateString() === new Date().toDateString()) {
-            //logDate.textContent = "Today";
-        //} else {
-            //// Update logDate and load workouts for the new date
-            //logDate.textContent = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric'});
-        //}
-        
-        ////loadWorkouts();
-    //});
-//}
-
-
-//// Load workouts and set up date change when the page loads
-//window.onload = function() {
-    //// Update the log-date div to display the current date
-    //var logDate = document.querySelector('.log-date');
-    //logDate.textContent = "Today";
-
-    //loadWorkouts();
-    //changeDate();
-//};

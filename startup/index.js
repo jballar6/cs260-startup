@@ -16,17 +16,6 @@ app.use(`/api`, apiRouter);
 
 // Placeholder for database connection
 
-//// GetWorkouts
-//apiRouter.get('/workouts', (_req, res) => {
-  //res.send(workouts);
-//});
-
-//// SubmitWorkout
-//apiRouter.post('/workouts', (req, res) => {
-  //workouts = updateWorkouts(req.body, workouts);
-  //res.send(workouts);
-//});
-
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
