@@ -17,10 +17,6 @@ function logWorkout() {
         // Get today's date as a string in the format 'YYYY-MM-DD'
         var today = new Date().toISOString().split('T')[0];
 
-        //Create logbook object
-
-        //if (today in logbook):
-
         // Save the updated workouts array to localStorage
         localStorage.setItem('workouts', JSON.stringify(workouts));
 

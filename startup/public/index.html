@@ -7,6 +7,7 @@
     <title>The Lift Log</title>
 
     <script src="quotes.js"></script>
+    <script src="login.js"></script>
 
     <link rel="stylesheet" href="/main.css" />
 
@@ -29,11 +30,11 @@
 
     <main class="container-fluid text-center">
       <h6 id="quote" style="margin-top: 5vh;"></h6>
-      <form method="get" action="loggedin.html">
+        <div>
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Your username here" />
-        <button type="submit" class="btn btn-danger">Login</button>
-      </form>
+        <input type="text" id="name" placeholder="Your name here" />
+        <button onclick="login()" class="btn btn-danger">Login</button>
+        </div>
       <img src="assets/BlackRedBodybuilder.png" width="300">
     </main>
 

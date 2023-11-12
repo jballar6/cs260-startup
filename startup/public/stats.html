@@ -34,7 +34,7 @@
     </header>
 
     <main class="container-fluid text-center">
-      <h1>My Stats</h1>
+      <h2 class="userstats"></h2>
       <h6>Logging since September 1st, 2023</h6>
       <form method="add">
         <input type="text" id="search" placeholder="Search for a workout" />
@@ -64,5 +64,8 @@
         </span>
       </div>
     </footer>
+    <script>
+        document.querySelector('h2.userstats').textContent = localStorage.getItem('userName') + "'s Stats";
+    </script>
   </body>
 </html>
