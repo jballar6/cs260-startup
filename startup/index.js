@@ -14,18 +14,30 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// Initialize date
+let today = new Date();
+
+// API endpoint to get username
+//apiRouter.post('/user', (req, res) => {
+  //user = req.json(user);
+//});
+let user = "user"
+
 // Initialize userlogs
 let userlogs = {};
 
+// Initialize the user's log
+userlogs[user] = {};
+
 // API endpoint to get userlogs
 apiRouter.get('/userlogs', (_req, res) => {
-  res.json(userlogs);
+  res.json(userlogs[user]);
 });
 
 // API endpoint to update userlogs
 apiRouter.post('/userlogs', (req, res) => {
-  userlogs = req.body;
-  res.json(userlogs);
+  updateUserlogs(req.body, userlogs);
+  res.json(userlogs[user]);
 });
 
 // Placeholder for database connection
@@ -40,13 +52,7 @@ app.listen(port, () => {
 });
 
 
-//let workouts = [];
-//function updateWorkouts(newWorkout, workouts) {
-    //// Check if workout is not empty
-    //if (newWorkout) {
-        //// Create a new workout object
-        //const workout = { workout: newWorkout, date: new Date() };
-        //workouts.push(workout);
-    //}
-    //return workouts;
-//}
+function updateUserlogs(newWorkout, userlogs) {
+    userlogs[user][today] = [];
+    userlogs[user][today].push(newWorkout);
+}
