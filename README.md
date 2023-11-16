@@ -82,3 +82,11 @@ For this deliverable I stored the workouts in the database.
 - **MongoDB Atlas database created** - done!
 - **Endpoints for data** - My stubbed out endpoints now process the data and send it to Mongo.
 - **Stores data in MongoDB** - done!
+
+## Login deliverable
+
+For this deliverable I implemented the login functionality for the website. 
+- **User registration** - Creates a new account in the database.
+- **Existing user** - Recognizes existing users for login.
+- **Use MongoDB to store credentials** - Stores the user info.
+- **Restricts functionality** - You cannot view the log until you have logged in.
