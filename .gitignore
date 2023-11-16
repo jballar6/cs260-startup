@@ -3,3 +3,5 @@ simon-service/*
 dbConfig.json
 simon-db/
 simon-db/*
+simon-login/
+simon-login/*

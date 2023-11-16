@@ -30,12 +30,19 @@
 
     <main class="container-fluid text-center">
       <h6 id="quote" style="margin-top: 5vh;"></h6>
-        <form onsubmit="event.preventDefault(); login();">
-        <label for="username">Username</label>
-        <input type="text" id="name" placeholder="Your name here" />
-        <button onclick="login()" class="btn btn-danger">Login</button>
+        <form onsubmit="event.preventDefault();">
+        <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input class="form-control" type="text" id="userName" placeholder="your name here" />
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" id="userPassword" placeholder="password" />
+        </div>
+        <button onclick="loginUser()" class="btn btn-danger">Login</button>
+        <button onclick="createUser()" class="btn btn-danger">Create</button>
         </form>
-      <img src="assets/BlackRedBodybuilder.png" width="300">
+      <img src="assets/BlackRedBodybuilder.png" width="270">
     </main>
 
     <footer class="bg-secondary text-white-50">

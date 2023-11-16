@@ -36,6 +36,10 @@ menu {
   padding-inline-end: 1em;
 }
 
+button.btn-danger {
+    margin-bottom: 15px;
+}
+
 .navbar-brand {
   padding-left: 0.3em;
   border-bottom: solid rgb(182, 182, 182) thin;
