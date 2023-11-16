@@ -75,3 +75,10 @@ For this deliverable I added backend endpoints to receive and return stored work
 - **Calls to third party endpoints** - Added call to API for motivational Bruce Lee quotes.
 - **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for logged workouts.
 - **Frontend calls service endpoints** - I did this using the fetch function.
+
+## Database deliverable
+
+For this deliverable I stored the workouts in the database.
+- **MongoDB Atlas database created** - done!
+- **Endpoints for data** - My stubbed out endpoints now process the data and send it to Mongo.
+- **Stores data in MongoDB** - done!
