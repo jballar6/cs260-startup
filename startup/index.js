@@ -14,18 +14,15 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// Initialize userlogs
-let userlogs = {};
-
-// API endpoint to get userlogs
-apiRouter.get('/userlogs', (_req, res) => {
-  res.json(userlogs);
+// API endpoint to get workouts
+apiRouter.get('/workouts', (_req, res) => {
+  res.send(workouts);
 });
 
-// API endpoint to update userlogs
-apiRouter.post('/userlogs', (req, res) => {
-  userlogs = req.body;
-  res.json(userlogs);
+// API endpoint to update workouts
+apiRouter.post('/workouts', (req, res) => {
+  workouts = updateWorkouts(req.body, workouts);
+  res.send(workouts);
 });
 
 // Placeholder for database connection
@@ -40,13 +37,22 @@ app.listen(port, () => {
 });
 
 
-//let workouts = [];
-//function updateWorkouts(newWorkout, workouts) {
-    //// Check if workout is not empty
-    //if (newWorkout) {
-        //// Create a new workout object
-        //const workout = { workout: newWorkout, date: new Date() };
-        //workouts.push(workout);
-    //}
-    //return workouts;
-//}
+// Initialize workouts
+let workouts = [];
+function updateWorkouts(newWorkout, workouts) {
+    console.log("Ran updateWorkouts()");
+    let found = false;
+    for (const workout of workouts.entries()) {
+        if (newWorkout === workout) {
+            found = true;
+            console.log("No duplicates");
+            break;
+        }
+    }
+
+    if (!found) {
+        workouts.push(newWorkout);
+    }
+
+    return workouts;
+}

@@ -1,114 +1,105 @@
-//Model data structure
-//const userlogs = {
-    //user1 : "logs"->{
-        //date : {workout : a, sets : b, weight : c, reps : d},
-        //date2 : {workout : a, sets : b, weight : c, reps : d}
-    //},
-    //user2 : "logs"->{
-        //date : {workout : a, sets : b, weight : c, reps : d},
-        //date2 : {workout : a, sets : b, weight : c, reps : d}
-    //}
-//}
+// Global variable to store the current date
+let currentDate = new Date();
 
 async function loadWorkouts() {
-  let workouts = [];
-  try {
-    // Get the latest workouts from the service
-    const response = await fetch('/api/userlogs');
-    const userlogs = await response.json();
+    let workouts = [];
+    try {
+        // Get the latest workouts from the service
+        const response = await fetch('/api/workouts');
+        workouts = await response.json();
 
-    // Get the workouts for the current user and date
-    const username = 'user1'; // replace this with the actual username
-    const today = new Date().toISOString().split('T')[0];
-    if (userlogs[username] && userlogs[username][today]) {
-      workouts = userlogs[username][today].map(log => log.workout);
+        // Save the workouts in case we go offline in the future
+        localStorage.setItem('workouts', JSON.stringify(workouts));
+    }
+    catch {
+        // If there was an error then just use the last saved workouts
+        const workoutsText = localStorage.getItem('workouts');
+        if (workoutsText) {
+            workouts = JSON.parse(workoutsText);
+        }
     }
 
-    // Save the workouts in case we go offline in the future
-    localStorage.setItem('workouts', JSON.stringify(workouts));
-  } catch {
-    // If there was an error then just use the last saved workouts
-    const workoutsText = localStorage.getItem('workouts');
-    if (workoutsText) {
-      workouts = JSON.parse(workoutsText);
-    }
-  }
-
-  displayWorkouts(workouts.reverse());
+    console.log("load workouts was called")
+    displayWorkouts(workouts.reverse());
 }
 
 function displayWorkouts(workouts) {
-  const innerDiv = document.querySelector('.inner-div');
+  const workoutsLog = document.querySelector('.inner-div');
 
   if (workouts.length > 0) {
     // Update the DOM with the workouts
-    for (const [i, workout] of workouts.entries()) {
-      const listItem = document.createElement('li');
-      listItem.className = 'list-group-item list-group-item-custom';
-      listItem.textContent = workout;
-      innerDiv.appendChild(listItem);
+    for (const workout of workouts) {
+        console.log("the main loop is running in display workouts")
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item list-group-item-custom';
+        listItem.textContent = workout.workout;
+
+        // add the list item to the inner div
+        workoutsLog.appendChild(listItem);
     }
-  } else {
-    const listItem = document.createElement('li');
-    listItem.className = 'list-group-item list-group-item-custom';
-    listItem.textContent = 'No workouts logged.';
-
-    // add the list item to the inner div
-    innerDiv.appendChild(listItem);
   }
-}
+    else {
+        console.log("the else was called in display workouts")
+        const listItem = document.createElement('li');
+        listItem.className = 'list-group-item list-group-item-custom';
+        listItem.textContent = 'No workouts logged.';
 
-// Global variable to store the current date
-var currentDate = new Date();
+        // add the list item to the inner div
+        workoutsLog.appendChild(listItem);
+    }
+}
 
 // Function to log a workout
 async function logWorkout() {
     // Get the workout from the input field
     const workout = document.getElementById('search').value;
 
-    // Check if workout is not empty
-    if (workout) {
-        // Get the existing workouts from localStorage
-        const workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+    // Convert to an object so that JSON.stringify will work
+    const workoutObj = { workout: workout };
 
-        // Add the new workout to the array
-        workouts.push(workout);
-
-        // Get today's date as a string in the format 'YYYY-MM-DD'
-        const today = new Date().toISOString().split('T')[0];
-
-        // Save the updated workouts array to localStorage
-        localStorage.setItem('workouts', JSON.stringify(workouts));
-
-        // Create a new list item
-        const listItem = document.createElement('li');
-        listItem.className = 'list-group-item list-group-item-custom';
-        listItem.textContent = workout;
-
-        // Add the list item to the inner div
-        const innerDiv = document.querySelector('.inner-div');
-        
-        // Check if "No workouts logged." exists and remove it
-        const noWorkoutItem = innerDiv.querySelector('.list-group-item');
-        if (noWorkoutItem && noWorkoutItem.textContent === 'No workouts logged.') {
-            innerDiv.removeChild(noWorkoutItem);
-        }
-
-        // Add the workout to the userlogs object
-        const username = 'user1'; // replace this with the actual username
-        if (!userlogs[username]) {
-            userlogs[username] = {};
-        }
-        if (!userlogs[username][today]) {
-            userlogs[username][today] = [];
-        }
-
-        userlogs[username][today].push({
-            workout: workout,
-            sets: 0, // replace with actual sets
-            weight: 0, // replace with actual weight
-            reps: 0 // replace with actual reps
+    try {
+        const response = await fetch('/api/workouts', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(workoutObj),
         });
+
+        // Store what the service gave us as the high scores
+        const workouts = await response.json();
+        localStorage.setItem('workouts', JSON.stringify(workouts));
+    }
+    catch {
+        // If there was an error then just track scores locally
+        this.logWorkoutLocal(workout);
+    }
+
+    displayWorkouts(workouts.reverse());
+}
+
+function logWorkoutLocal(workout) {
+    // Get the existing workouts from localStorage
+    var workouts = JSON.parse(localStorage.getItem('workouts')) || [];
+
+    // Add the new workout to the array
+    workouts.push(workout);
+
+    // Get today's date as a string in the format 'YYYY-MM-DD'
+    var today = new Date().toISOString().split('T')[0];
+
+    // Save the updated workouts array to localStorage
+    localStorage.setItem('workouts', JSON.stringify(workouts));
+
+    // Create a new list item
+    var listItem = document.createElement('li');
+    listItem.className = 'list-group-item list-group-item-custom';
+    listItem.textContent = workout;
+    // Add the list item to the inner div
+    var innerDiv = document.querySelector('.inner-div');
+    
+    // Check if "No workouts logged." exists and remove it
+    var noWorkoutItem = innerDiv.querySelector('.list-group-item');
+    if (noWorkoutItem && noWorkoutItem.textContent === 'No workouts logged.') {
+        innerDiv.removeChild(noWorkoutItem);
     }
 }
 
