@@ -1,8 +1,5 @@
 simon-service/
 simon-service/*
 dbConfig.json
-database.js
-mongoTest/
-mongoTest/*
 simon-db/
 simon-db/*
