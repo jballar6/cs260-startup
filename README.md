@@ -88,5 +88,5 @@ For this deliverable I stored the workouts in the database.
 For this deliverable I implemented the login functionality for the website. 
 - **User registration** - Creates a new account in the database.
 - **Existing user** - Recognizes existing users for login.
-- **Use MongoDB to store credentials** - Stores the user info.
+- **Use MongoDB to store credentials** - Stores the user info and encrypts the password.
 - **Restricts functionality** - You cannot view the log until you have logged in.
