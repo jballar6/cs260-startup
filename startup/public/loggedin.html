@@ -30,14 +30,14 @@
           <li class="nav-item"><a class="nav-link" href="stats.html">Stats</a></li>
           <li class="nav-item"><a class="nav-link" onclick="logout()">Log out</a></li>
         </menu>
-      <div class="flash-notification" style="display: none;"></div>
       </nav>
 
     </header>
 
     <main class="container-fluid text-center">
       <h2 class="userlog"></h2>
-      <form method="add">
+      <h6 class="flash-notification" style="display: none;"></h6>
+      <form method="add" onsubmit="event.preventDefault();">
         <input type="text" id="search" placeholder="Record a workout" />
         <button type="submit" class="btn btn-danger btn-custom" onclick="logWorkout()">Go</button>
       </form>

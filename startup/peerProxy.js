@@ -12,50 +12,25 @@ function peerProxy(httpServer) {
     });
   });
 
-  // Keep track of all the connections so we can forward messages
-  let connections = [];
+  wss.on('connection', ws => {
+  ws.on('message', message => {
+    console.log(`Received message: ${message}`);
+    
+    // Parse the incoming message
+    const msg = JSON.parse(message);
 
-  wss.on('connection', (ws) => {
-    const connection = { id: uuid.v4(), alive: true, ws: ws };
-    connections.push(connection);
+    // Prepare a response
+    let response;
+    if (msg.type === 'Success') {
+      response = { type: 'Success', message: 'Workout logged successfully!' };
+    } else if (msg.type === 'Failure') {
+      response = { type: 'Failure', message: 'Failed to save workout. Try again' };
+    }
 
-    // Forward messages to everyone except the sender
-    ws.on('message', function message(data) {
-      connections.forEach((c) => {
-        if (c.id !== connection.id) {
-          c.ws.send(data);
-        }
-      });
+    // Send the response
+    ws.send(JSON.stringify(response));
     });
-
-    // Remove the closed connection so we don't try to forward anymore
-    ws.on('close', () => {
-      connections.findIndex((o, i) => {
-        if (o.id === connection.id) {
-          connections.splice(i, 1);
-          return true;
-        }
-      });
     });
-
-    // Respond to pong messages by marking the connection alive
-    ws.on('pong', () => {
-      connection.alive = true;
-    });
-  });
-
-  // Keep active connections alive
-  setInterval(() => {
-    connections.forEach((c) => {
-      // Kill any connection that didn't respond to the ping last time
-      if (!c.alive) {
-        c.ws.terminate();
-      } else {
-        c.alive = false;
-        c.ws.ping();
-      }
-    });
-  }, 10000);
 }
 
 module.exports = { peerProxy };

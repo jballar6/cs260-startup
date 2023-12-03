@@ -1,3 +1,7 @@
+// Event messages
+const Success = 'Success';
+const Failure = 'Failure'
+
 // Functionality for user notifications using WebSocket
 
 function configureWebSocket() {
@@ -9,12 +13,14 @@ function configureWebSocket() {
     socket.onclose = (event) => {
         console.log("WebSocket disconnected");
     };
-    socket.onmessage = function (event) {
-        const msg = JSON.parse(event.data.text());
-        if (msg.type === 'Success') {
-            localStorage.setItem('lastMessage', 'Workout logged successfully!');
-        } else if (msg.type === 'Failure') {
-            localStorage.setItem('lastMessage', 'Failed to save workout. Try again');
+    socket.onmessage = async (event) => {
+        console.log('this was run (onmessage)');
+        console.log(event.data);
+        const msg = await JSON.parse(event.data);
+        if (msg.type === Success) {
+            displayFlashNotification('Workout logged successfully!');
+        } else if (msg.type === Failure) {
+            displayFlashNotification('Failed to save workout. Try again');
         }
     };
 }
@@ -25,16 +31,17 @@ function broadcastEvent(from, type, value) {
         type: type,
         value: value,
     };
+    console.log(event);
     socket.send(JSON.stringify(event));
 }
 
 function displayFlashNotification(message) {
-    const flashNotification = document.querySelector('.flash-notification');
+    const flashNotification = document.querySelector('h6.flash-notification');
     flashNotification.textContent = message;
     flashNotification.style.display = 'block';
     setTimeout(() => {
         flashNotification.style.display = 'none';
-    }, 3000);
+    }, 4000);
 }
 
 // Global variable to store the current date
@@ -56,6 +63,14 @@ async function loadWorkouts() {
         if (workoutsText) {
             workouts = JSON.parse(workoutsText);
         }
+    }
+
+    // Get the .inner-div element
+    const workoutsLog = document.querySelector('.inner-div');
+
+    // Remove existing list elements
+    while (workoutsLog.firstChild) {
+        workoutsLog.removeChild(workoutsLog.firstChild);
     }
 
     console.log("load workouts was called")
@@ -90,14 +105,14 @@ function displayWorkouts(workouts) {
 
 // Function to log a workout
 async function logWorkout() {
-    // Clear the text field
-    document.getElementById('logfield').textContent = "Record a workout";
-
     // Get the workout from the input field
     const workout = document.getElementById('search').value;
 
     // Convert to an object so that JSON.stringify will work
     const workoutObj = { workout: workout };
+
+    // Clear the text field
+    document.getElementById('search').value = '';
 
     try {
         const response = await fetch('/api/workouts', {
@@ -112,7 +127,7 @@ async function logWorkout() {
     }
     catch {
         //// If there was an error then just track scores locally
-        //this.logWorkoutLocal(workout);
+        this.logWorkoutLocal(workout);
         broadcastEvent('{USERNAME}', 'Failure', workoutObj);
     }
 
@@ -193,8 +208,5 @@ window.onload = function() {
     changeDate();
     configureWebSocket();
 
-    const lastMessage = localStorage.getItem('lastMessage');
-    if (lastMessage) {
-        displayFlashNotification(lastMessage);
-    }
+    displayFlashNotification('this works rihgt?')
 };
