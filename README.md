@@ -90,3 +90,11 @@ For this deliverable I implemented the login functionality for the website.
 - **Existing user** - Recognizes existing users for login.
 - **Use MongoDB to store credentials** - Stores the user info and encrypts the password.
 - **Restricts functionality** - You cannot view the log until you have logged in.
+
+## WebSocket deliverable
+
+For this deliverable I implemented WebSocket functionality to flash a message when a workout is logged.
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - Message is displayed in real time to let the user know their workout was logged or not!
