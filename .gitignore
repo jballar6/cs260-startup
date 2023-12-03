@@ -5,3 +5,6 @@ simon-db/
 simon-db/*
 simon-login/
 simon-login/*
+simon-websocket/
+simon-websocket/
+websocket-chat/

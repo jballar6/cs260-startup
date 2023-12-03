@@ -1,3 +1,42 @@
+// Functionality for user notifications using WebSocket
+
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+        console.log("WebSocket connected");
+    };
+    socket.onclose = (event) => {
+        console.log("WebSocket disconnected");
+    };
+    socket.onmessage = function (event) {
+        const msg = JSON.parse(event.data.text());
+        if (msg.type === 'Success') {
+            localStorage.setItem('lastMessage', 'Workout logged successfully!');
+        } else if (msg.type === 'Failure') {
+            localStorage.setItem('lastMessage', 'Failed to save workout. Try again');
+        }
+    };
+}
+
+function broadcastEvent(from, type, value) {
+    const event = {
+        from: from,
+        type: type,
+        value: value,
+    };
+    socket.send(JSON.stringify(event));
+}
+
+function displayFlashNotification(message) {
+    const flashNotification = document.querySelector('.flash-notification');
+    flashNotification.textContent = message;
+    flashNotification.style.display = 'block';
+    setTimeout(() => {
+        flashNotification.style.display = 'none';
+    }, 3000);
+}
+
 // Global variable to store the current date
 let currentDate = new Date();
 
@@ -51,6 +90,9 @@ function displayWorkouts(workouts) {
 
 // Function to log a workout
 async function logWorkout() {
+    // Clear the text field
+    document.getElementById('logfield').textContent = "Record a workout";
+
     // Get the workout from the input field
     const workout = document.getElementById('search').value;
 
@@ -64,16 +106,17 @@ async function logWorkout() {
             body: JSON.stringify(workoutObj),
         });
 
-        // Store what the service gave us as the high scores
         const workouts = await response.json();
         localStorage.setItem('workouts', JSON.stringify(workouts));
+        broadcastEvent('{USERNAME}', 'Success', workoutObj);
     }
     catch {
-        // If there was an error then just track scores locally
-        this.logWorkoutLocal(workout);
+        //// If there was an error then just track scores locally
+        //this.logWorkoutLocal(workout);
+        broadcastEvent('{USERNAME}', 'Failure', workoutObj);
     }
 
-    displayWorkouts(workouts.reverse());
+    loadWorkouts();
 }
 
 function logWorkoutLocal(workout) {
@@ -148,4 +191,10 @@ window.onload = function() {
 
     loadWorkouts();
     changeDate();
+    configureWebSocket();
+
+    const lastMessage = localStorage.getItem('lastMessage');
+    if (lastMessage) {
+        displayFlashNotification(lastMessage);
+    }
 };
