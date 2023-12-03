@@ -208,5 +208,5 @@ window.onload = function() {
     changeDate();
     configureWebSocket();
 
-    displayFlashNotification('this works rihgt?')
+    //displayFlashNotification('this works rihgt?')
 };
