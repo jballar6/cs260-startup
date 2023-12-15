@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Lift Log</title>
+
+    <link rel="icon" href="favicon.ico" />
+
+    <script src="workoutlog.js"></script>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Include bootstrap CSS framework -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark text-light">
+    <header class="container-fluid">
+      <nav class="navbar fixed-top navbar-dark d-flex justify-content-center" style="background-color: rgba(33,37,41,1);">
+        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+        <menu class="d-flex">
+          <li class="nav-item-active"><a class="nav-link" href="loggedin.html">Lift Log</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Lift History</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="logout()">Log out</a></li>
+        </menu>
+      </nav>
+
+    </header>
+
+    <main class="container-fluid text-center">
+      <h2 class="userlog"></h2>
+      <h6 class="flash-notification" style="display: none;"></h6>
+      <form method="add" onsubmit="event.preventDefault();">
+        <input type="text" id="search" placeholder="Record a workout" />
+        <button type="submit" class="btn btn-danger btn-custom" onclick="logWorkout()">Go</button>
+      </form>
+      <div class="list-group list-group-custom">
+        <div style="display: flex; justify-content: space-between; padding: 10px;">
+            <span class="nav-back-day prevent-select">&#10094;</span>
+            <div class="log-date">Today</div>
+            <span class="nav-forward-day prevent-select">&#10095;</span>
+        </div>
+        <div id="workouts-list" class="inner-div" style="overflow: auto; height: calc(100% - 40px);">
+        </div>
+     </div>
+
+    </main>
+
+    <footer class="bg-secondary text-white-50">
+      <div class="container-fluid">
+        <span class="text-reset">
+            Tips and Tricks
+            <a class="text-reset" href="https://github.com/jballar5/cs260-startup">GitHub</a>
+        </span>
+      </div>
+    </footer>
+    <script>
+        if (localStorage.getItem('userName')) {
+            document.querySelector('h2.userlog').textContent = localStorage.getItem('userName') + "'s Lift Log";
+        }
+        else {
+            document.querySelector('h2.userlog').textContent = "My Lift Log";
+        }
+    </script>
+  </body>
+</html>

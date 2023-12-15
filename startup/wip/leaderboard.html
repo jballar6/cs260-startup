@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lift Leaderboard</title>
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Include bootstrap CSS framework -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="bg-dark text-light">
+    <header class="container-fluid">
+      <nav class="navbar fixed-top navbar-dark d-flex justify-content-between" style="background-color: rgba(33,37,41,1);">
+
+        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+        <menu class="d-flex">
+          <li class="nav-item"><a class="nav-link" href="loggedin.html">Back to my Log</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Lift Calendar</a></li>
+        </menu>
+        <menu class="d-flex justify-content-end right-menu-padding">
+          <li class="nav-item">Mystery User</li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Log out</a></li>
+        </menu>
+      </nav>
+
+    </header>
+
+    <main>
+      <h1>The Lift Log Leaderboard</h1>
+      <form method="add">
+        <input type="text" id="search" placeholder="Search for a workout" />
+        <button type="submit" class="btn btn-danger btn-custom">Go</button>
+      </form>
+      <h5>Top bench press lifts:</h5>
+      <ol class="list-group list-group-numbered list-group-custom" style="position: relative; width: 375px; height: 300px; overflow: auto; -webkit-overflow-scrolling: touch;">
+        <div style="display: flex; justify-content: space-between; padding: 10px;">
+            <span>Sort by:</span>
+            <span>Weight</span>
+        </div>
+        <div style="overflow: auto; height: calc(100% - 40px);">
+            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Jimbo - 1 rep - 415 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Chris Bumstead - 1 rep - 405 lbs.</li>
+            <li href="#" class="list-group-item list-group-item-custom">Cosmo - 1 rep - 225 lbs.</li>
+        </div>
+      </ol>
+
+    </main>
+
+  <footer class="bg-secondary text-white-50">
+    <div class="container-fluid">
+        <span class="text-reset">
+            Tips and Tricks
+            <a class="text-reset" href="https://github.com/jballar5/cs260-startup">GitHub</a>
+        </span>
+  </footer>
+  </body>
+</html>

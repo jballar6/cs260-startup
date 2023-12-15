@@ -1,0 +1,203 @@
+.site-content-wrapper {
+    overflow-y: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+}
+
+header {
+  flex: 0 80px;
+}
+
+main {
+  flex: 1 calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer {
+  flex: 0 30px;
+}
+
+menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  /*  overwrite Bootstrap so the menu does not wrap */
+  flex-direction: row !important;
+  list-style: none;
+  padding-inline-start: 1em;
+  padding-inline-end: 1em;
+}
+
+h6.flash-notification {
+    display: none;
+}
+
+button.btn-danger {
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+.navbar-brand {
+  padding-left: 0.3em;
+  border-bottom: solid rgb(182, 182, 182) thin;
+}
+
+.nav-item-active {
+    text-decoration: underline;
+    color: #DC3545;
+    font-weight: bolder;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+menu .nav-item {
+  padding: 0 1em;
+}
+
+.list-group {
+    background-color: #DC3545;
+    height: 300px;
+    width: 375px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.list-group-custom {
+    background-color: #DC3545;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list-group-item-custom {
+    background-color: #f1f9fb; /* Change the background color */
+    border-top: 1px solid #0091b5; /* Change the border color */
+    border-left-color: #fff;
+    border-right-color: #fff;
+}
+
+/* Change the hover effect */
+.list-group-item-custom:hover {
+    background-color: #FFFFFF80; /* Change the hover color */
+}
+
+span.nav-back-day {
+    cursor:pointer;
+}
+
+span.nav-forward-day {
+    cursor:pointer;
+}
+
+span.stats-sorter {
+    cursor:pointer;
+}
+
+footer a {
+  float: right;
+}
+
+@media (max-height: 600px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 100vh;
+  }
+}
+
+ul {list-style-type: none;}
+
+/* Month header */
+.month {
+  padding: 10px 10px;
+  width: 375px;
+  background: #DC3545;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  color: #666;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+/* Days (1-31) */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 18px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  /* width: 13.6%; */
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:18px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #DC3545;
+  color: white !important
+}

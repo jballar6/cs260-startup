@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Lift Log</title>
+
+    <link rel="icon" href="favicon.ico" />
+
+    <script src="stats.js"></script>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Include bootstrap CSS framework -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-dark text-light">
+    <header class="container-fluid">
+      <nav class="navbar fixed-top navbar-dark d-flex justify-content-center" style="background-color: rgba(33,37,41,1);">
+        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+        <menu class="d-flex">
+          <li class="nav-item"><a class="nav-link" href="loggedin.html">Lift Log</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Lift History</a></li>
+          <li class="nav-item-active"><a class="nav-link" href="stats.html">Stats</a></li>
+          <li class="nav-item"><a class="nav-link" onclick="logout()">Log out</a></li>
+        </menu>
+      </nav>
+
+    </header>
+
+    <main class="container-fluid text-center">
+      <h1>UNDER CONSTRUCTION, NOT PART OF 260 SUBMISSION</h2>
+      <h2 class="userstats"></h2>
+      <h6>Logging since September 1st, 2023</h6>
+      <form method="add">
+        <input type="text" id="search" placeholder="Search for a workout" />
+        <button type="submit" class="btn btn-danger btn-custom">Go</button>
+      </form>
+      <h5>Top bench press lifts:</h5>
+      <div class="list-group list-group-custom">
+        <div style="display: flex; justify-content: space-between; padding: 10px;">
+            <span>Sort by:</span>
+            <span class="stats-sorter prevent-select">Weight</span>
+        </div>
+        <div class="inner-div" style="overflow: auto; height: calc(100% - 40px);">
+            <li class="list-group-item list-group-item-custom">415 lbs. - 1 rep - September 12, 2023</li>
+            <li class="list-group-item list-group-item-custom">410 lbs. - 2 reps - September 9, 2023</li>
+            <li class="list-group-item list-group-item-custom">405 lbs. - 3 reps - September 15, 2023</li>
+            <li class="list-group-item list-group-item-custom">405 lbs. - 4 reps - September 6, 2023</li>
+        </div>
+     </div>
+
+    </main>
+
+    <footer class="bg-secondary text-white-50">
+      <div class="container-fluid">
+        <span class="text-reset">
+            Tips and Tricks
+            <a class="text-reset" href="https://github.com/jballar5/cs260-startup">GitHub</a>
+        </span>
+      </div>
+    </footer>
+    <script>
+        if (localStorage.getItem('userName')) {
+            document.querySelector('h2.userstats').textContent = localStorage.getItem('userName') + "'s Stats";
+        }
+        else {
+            document.querySelector('h2.userstats').textContent = "My Stats";
+        }
+    </script>
+  </body>
+</html>
