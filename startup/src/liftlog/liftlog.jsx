@@ -1,7 +1,10 @@
 import React from 'react';
+import { Loggedin } from '../navbar/loggedin';
 
 export function Liftlog() {
     return (
+        <>
+        <Loggedin />
         <main className="container-fluid text-center">
             <h2 className="userlog"></h2>
             <h6 className="flash-notification"></h6>
@@ -19,5 +22,14 @@ export function Liftlog() {
                 </div>
             </div>
         </main>
+        <footer className="bg-secondary text-white-50">
+            <div className="container-fluid">
+                <span className="text-reset">
+                    Author Name: Jon B
+                    <a className="text-reset" href="https://github.com/jballar5/cs260-startup">GitHub</a>
+                </span>
+            </div>
+        </footer>
+        </>
     );
 }

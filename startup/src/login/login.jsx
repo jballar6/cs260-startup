@@ -34,28 +34,25 @@ export function Login({ userName, authState, onAuthChange }) {
     }, []);
 
     return (
+        <>
+        <header className="container-fluid">
+            <nav className="navbar fixed-top navbar-dark d-flex flex-column align-items-center justify-content center">
+                <h5>Welcome to</h5>
+                <h1>The Lift Log</h1>
+            </nav>
+        </header>
         <main className='container-fluid text-center'>
-            <div>
-                {authState !== AuthState.Unknown && (
-                    <div>
-                        <h5>Welcome to</h5>
-                        <h1>The Lift Log</h1>
-                    </div>
-                )}
-                {authState === AuthState.Authenticated && (
-                    <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
-                )}
-                {authState === AuthState.Unauthenticated && (
-                    <Unauthenticated
-                        userName={userName}
-                        onLogin={(loginUserName) => {
-                            onAuthChange(loginUserName, AuthState.Authenticated);
-                        }}
-                    />
-                )}
-            </div>
             <h6 id="quote" style={{ marginTop: '5vh' }}></h6>
             <img src="assets/BlackRedBodybuilder.png" width="270" />
         </main>
+        <footer className="bg-secondary text-white-50">
+            <div className="container-fluid">
+                <span className="text-reset">
+                    Author Name: Jon B
+                    <a className="text-reset" href="https://github.com/jballar5/cs260-startup">GitHub</a>
+                </span>
+            </div>
+        </footer>
+        </>
     );
 }
