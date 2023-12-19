@@ -14,13 +14,18 @@ function App() {
   return (
     <BrowserRouter>
       <div className='body bg-dark text-light'>
-        <header className='container-fluid'>
-          <nav className='navbar fixed-top navbar-dark'>
-                <h1>The Lift Log</h1>
-          </nav>
-        </header>
-
-        <Login />
+        {authState === AuthState.Authenticated && (
+            <Liftlog userName={userName} onLogout={() => {setAuthState(AuthState.Unauthenticated); setUserName('');}} />
+        )}
+        {authState === AuthState.Unauthenticated && (
+            <Login
+                userName={userName}
+                onLogin={(userName) => {
+                    setUserName(userName);
+                    setAuthState(AuthState.Authenticated);
+                }}
+            />
+        )}
 
         <footer className="bg-secondary text-white-50">
             <div className="container-fluid">
