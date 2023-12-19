@@ -98,3 +98,11 @@ For this deliverable I implemented WebSocket functionality to flash a message wh
 - **Frontend makes WebSocket connection** - done!
 - **Data sent over WebSocket connection** - done!
 - **WebSocket data displayed** - Message is displayed in real time to let the user know their workout was logged or not!
+
+## React deliverable
+
+For this deliverable I converted the application to use React and Vite.
+- **Bundled and transpiled** - done!
+- **Components** - Login and Lift log have been converted to components.
+- **Router** - I use routing between the two components depending on authentication hooks. The TA I worked with said that'll work.
+- **Hooks** - I have an authState hook that is used to determine what is displayed.
